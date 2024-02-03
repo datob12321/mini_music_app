@@ -53,7 +53,7 @@ class Ui_Form(object):
 
 
     def scroll_area(self):
-        for i in range(30):
+        for i in range(0):
             text = f'Label {i+1}'
             label = QtWidgets.QLabel(text)
             label.setFixedSize(100, 120)
@@ -61,6 +61,7 @@ class Ui_Form(object):
             self.verticalLayout1.addWidget(label)
         self.innerWidget.setLayout(self.verticalLayout1)
         self.innerWidget.setStyleSheet('padding-left: 5px;')
+
 
 
 

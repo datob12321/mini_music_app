@@ -42,6 +42,11 @@ class Artists(Base):
     def get_info(self):
         return session.query(ArtistInfo).filter(ArtistInfo.artist_id == self.artist_id).first()
 
+    def get_all_songs(self):
+        artist_id = self.artist_id
+        all_songs = session.query(Songs).filter_by(artist_id=artist_id).all()
+        return all_songs
+
 
 
 class Songs(Base):
@@ -137,37 +142,15 @@ class SongUrl(Base):
         return session.query(SongUrl).all()
 
 
-
 Base.metadata.create_all(engine)
 
 Session = sessionmaker(bind=engine)
 session = Session()
 
-# artists = session.execute(sqlalchemy.text('''SELECT firstname, lastname, song_name FROM
-#                                              artists a JOIN songs
-#                                              s ON a.artistID=s.artistID''')).fetchall()
-
-#lyrics = session.execute(sqlalchemy.text("SELECT * FROM lyrics")).fetchall()
-
-paulo = session.query(Artists).filter_by(first_name='Paulo').first()
-paulos_id = paulo.artist_id
-
-paulos_songs = session.query(Songs).filter(Songs.artist_id == paulos_id).all()
-
-# print(artists)
-# print(lyrics[1][1])
-# for song in paulos_songs:
-#     print(song.song_name)
-
-#print(paulos_songs[1].get_lyrics().lyric)
-
 artists = Artists.get_all()
-#print(artists)
+
 songs = Songs.get_all()
 
 lyrics = Lyrics.get_all()
 
 song_urls = SongUrl.get_all()
-
-
-#print(songs)
