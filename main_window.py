@@ -430,10 +430,7 @@ class Ui_MainWindow(object):
                     for j in range(len(artists)):
                         if (artists[j].country == self.country_checks[i].text()):
                             self.artist_labels[j].setVisible(False)
-                        # else:
-                        #     self.artist_labels[j].setVisible(False)
-
-
+                        
 
         else:
             self.scrollArea_genre.setVisible(False)
