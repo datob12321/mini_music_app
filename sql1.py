@@ -2,7 +2,7 @@ import sqlalchemy
 from sqlalchemy import create_engine, Column, Integer, String, ForeignKey, Date, URL
 from sqlalchemy.orm import sessionmaker, declarative_base, relationship
 
-engine = create_engine("mysql+mysqlconnector://root:dato.123.mysql@localhost/mymusic", echo=True)
+engine = create_engine("mysql+mysqlconnector://root:mypassword@localhost/mymusic", echo=True)
 Base = declarative_base()
 
 
